@@ -17,10 +17,20 @@ function createIndexForDictionary(d){
 }
 
 function indexSearch(needle, haystack, index){
-    //❓ Question 6 TODO: Finish this code
+
+    let wordPosition = getPositionInAlphabet(needle);
+    let startPosition =index[wordPosition];
+    let endPosition = index[wordPosition + 1];
+
+    
+
+    for (let i = startPosition; i < endPosition; i++) {
+        if (needle == haystack[i]) {
+            return true;
+        }
+    }
     return false;
 }
-
 let index = createIndexForDictionary(words);
 
 export default function(word){
